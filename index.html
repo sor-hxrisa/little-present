@@ -190,19 +190,10 @@
   .polaroid-photo{
     width:100%;
     height:210px;
+    display:block;
+    object-fit:cover;
     border-radius:2px;
-    background: repeating-linear-gradient(135deg, rgba(31,23,48,0.12), rgba(31,23,48,0.12) 10px, rgba(31,23,48,0.05) 10px, rgba(31,23,48,0.05) 20px), linear-gradient(160deg, #d9c9ee, #f0b9c8);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color: rgba(31,23,48,0.55);
-    font-family: var(--body);
-    font-size:0.7rem;
-    letter-spacing:0.05em;
-    text-align:center;
-    padding:0.6rem;
-    border:1.5px dashed rgba(31,23,48,0.3);
-  }
+}
   .polaroid-caption{
     margin-top:12px;
     font-family:var(--hand);
@@ -453,20 +444,25 @@
 <!-- ============ MEMORIES ============ -->
 <section id="memories">
   <div class="section-heading">a few moments</div>
-  <p class="memories-sub">.</p>
+  <p class="memories-sub">A few little memories I never want to forget.</p>
+
   <div class="polaroid-row">
+
     <div class="polaroid">
-      <div class="polaroid-photo">replace later<br>(in &lt;!-- PHOTO 1 --&gt; in code)</div>
+      <img class="polaroid-photo" src="images/photo1.jpg" alt="My Baby Momma">
       <div class="polaroid-caption">My Baby Momma</div>
     </div>
+
     <div class="polaroid">
-      <div class="polaroid-photo">replace later<br>(in &lt;!-- PHOTO 2 --&gt; in code)</div>
+      <img class="polaroid-photo" src="images/photo2.jpg" alt="Us">
       <div class="polaroid-caption">Us!!</div>
     </div>
+
     <div class="polaroid">
-      <div class="polaroid-photo">replace later<br>(in &lt;!-- PHOTO 3 --&gt; in code)</div>
+      <img class="polaroid-photo" src="images/photo3.jpg" alt="My Baby Love">
       <div class="polaroid-caption">My Baby Love</div>
     </div>
+
   </div>
 </section>
 
