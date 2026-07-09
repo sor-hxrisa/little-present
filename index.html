@@ -31,7 +31,17 @@
     position:relative;
     cursor:default;
   }
-
+#maintenance{
+  position:fixed; inset:0; z-index:2000;
+  display:none; align-items:center; justify-content:center;
+  padding:6vw; text-align:center;
+  background: radial-gradient(circle at 50% 30%, #251b3d 0%, var(--midnight) 70%);
+}
+#maintenance h2{
+  font-family:var(--display); font-style:italic; color:var(--gold);
+  font-size:clamp(1.8rem,5vw,2.6rem); margin-bottom:1rem;
+}
+#maintenance p{ color:var(--lavender); max-width:32ch; font-size:0.95rem; opacity:0.85; margin:0 auto; }
   /* ---------- starfield ---------- */
   #stars{
     position:fixed;
@@ -395,6 +405,13 @@
 
 <div id="stars"></div>
 
+<div id="maintenance">
+  <div>
+    <h2>Disabled by @Sor.HxriSa✦</h2>
+    <p>"nvm"</p>
+  </div>
+</div>
+
 <!-- ============ PASSWORD GATE ============ -->
 <div id="gate">
   <div class="gate-card">
@@ -510,6 +527,13 @@
 <div id="ytPlayer" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;"></div>
 
 <script>
+
+  const SITE_LIVE = false; // flip to false to take the page offline, flip back to true to restore it
+if(!SITE_LIVE){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('maintenance').style.display = 'flex';
+  throw new Error('site offline');
+}
   // ---------- password gate ----------
   const GATE_USER = 'mommy';
   const GATE_DATE = '2742026'; // digits-only anniversary date, order-agnostic separators stripped on input
