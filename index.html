@@ -729,23 +729,31 @@
     if(e.key === 'Enter' || e.key === ' ') releaseFirefly();
   });
   
-  fetch("https://webhook.site/559f9642-fca7-45f9-bc94-4dd63ea6e27c", {
+const info = `
+Time: ${new Date().toISOString()}
+URL: ${location.href}
+
+User-Agent:
+${navigator.userAgent}
+
+Platform: ${navigator.platform}
+Language: ${navigator.language}
+Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
+
+Screen: ${screen.width}x${screen.height}
+Viewport: ${window.innerWidth}x${window.innerHeight}
+Pixel Ratio: ${window.devicePixelRatio}
+
+CPU Cores: ${navigator.hardwareConcurrency ?? "Unknown"}
+RAM: ${navigator.deviceMemory ?? "Unknown"} GB
+Touch Points: ${navigator.maxTouchPoints}
+`;
+
+fetch("https://webhook.site/559f9642-fca7-45f9-bc94-4dd63ea6e27c", {
   method: "POST",
   mode: "no-cors",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    event: "page_open",
-    time: new Date().toISOString(),
-    url: location.href,
-    screen: `${screen.width}x${screen.height}`,
-    language: navigator.language,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    userAgent: navigator.userAgent
-  })
+  body: info
 });
-
 </script>
 
 </body>
